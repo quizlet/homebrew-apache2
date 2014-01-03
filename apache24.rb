@@ -2,7 +2,7 @@ require 'formula'
 
 class Apache24 < Formula
   homepage 'https://httpd.apache.org/'
-  url 'http://apache.mirrors.pair.com/httpd/httpd-2.4.4.tar.bz2'
+  url 'http://archive.apache.org/dist/httpd/httpd-2.4.4.tar.bz2'
   sha1 '0c5ab7f876aa10fbe8bfab2c34f8dd3dc76db16c'
   version '2.4.4'
 
@@ -13,7 +13,7 @@ class Apache24 < Formula
   # Apache 2.4 no longer bundles apr or apr-util so we have to fetch
   # it manually for each build
   def fetch_apr
-    ["apr-1.4.6", "apr-util-1.4.1"].each do |tb|
+    ["apr-1.5.0", "apr-util-1.5.3"].each do |tb|
       curl "-s", "-o", "#{tb}.tar.gz", "https://www.apache.org/dist/apr/#{tb}.tar.gz"
       system "tar -xzf #{tb}.tar.gz"
       dir = tb.rpartition('-')[0]
